@@ -33,6 +33,9 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-obsession'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'dyng/ctrlsf.vim'
 call plug#end()
 
 "*****************************************************************************
@@ -62,8 +65,6 @@ set lazyredraw
 
 set clipboard=unnamed
 
-inoremap jj <Esc> " use jj to switch to normal mode
-
 "*****************************************************************************
 "" Coc config
 "*****************************************************************************
@@ -74,9 +75,36 @@ let g:coc_global_extensions = [
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
 
+" Text search setup using ripgrep
+command! -bang -nargs=* Rg
+    \ call fzf#vim#grep(
+    \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+    \   fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%'), <bang>0) 
+
+
+
+"*****************************************************************************
+"" Key Mappings
+"*****************************************************************************
+inoremap jj <Esc> " use jj to switch to normal mode
+nnoremap <C-p> :Files<Cr> " fzf file search using ctrl+P
+
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" CtrlSF (search across files)
+nmap     <C-F>f <Plug>CtrlSFPrompt
+vmap     <C-F>f <Plug>CtrlSFVwordPath
+vmap     <C-F>F <Plug>CtrlSFVwordExec
+nmap     <C-F>n <Plug>CtrlSFCwordPath
+nmap     <C-F>p <Plug>CtrlSFPwordPath
+nnoremap <C-F>o :CtrlSFOpen<CR>
+nnoremap <C-F>t :CtrlSFToggle<CR>
+inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
+nnoremap <C-F>b :CtrlSF -R '\b\b'<Left><Left><Left>
+nnoremap <C-F>B :CtrlSF -R '\b<c-r>=expand("<cword>")<cr>\b'<Left><Left><Left>
+nnoremap <C-F>s :CtrlSF -S -R '\b\b'<Left><Left><Left>
+nnoremap <C-F>S :CtrlSF -S -R '\b<c-r>=expand("<cword>")<cr>\b'<Left><Left><Left>
