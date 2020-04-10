@@ -39,6 +39,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'dyng/ctrlsf.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'takac/vim-hardtime'
 call plug#end()
 
 "*****************************************************************************
