@@ -48,6 +48,7 @@ call plug#end()
 set nocompatible " Don't pretend to be vi
 syntax enable " Enable syntax highlighting
 filetype plugin on " Detect filetype and use filetype specific plugins
+runtime macros/matchit.vim " Enable matchit plugin
 set wildmenu " Activate command line completion
 colorscheme gruvbox " Set theme
 set colorcolumn=120 " Line length limit indicator
@@ -55,6 +56,7 @@ set number relativenumber " Show hybrid line numbers
 set cursorline " Highlight current line
 set lazyredraw " Lazy screen redraw
 set clipboard=unnamed " Enable pasting from clipboard
+let g:hardtime_default_on = 1 " set hardtime on by default for all buffers
 
 " Indentation
 set tabstop=4 " Set tab width to 4 spaces
@@ -97,10 +99,6 @@ command! -bang -nargs=* Rg
 "*****************************************************************************
 "" Key Mappings
 "*****************************************************************************
-" Use jj to switch to normal mode
-inoremap jj <Esc>
-" Paste in next line
-nmap <S-p> o<Esc>p
 " Fzf file search using ctrl+P
 nnoremap <C-p> :Files<Cr>
 
