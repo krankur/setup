@@ -26,6 +26,8 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "" Plug install packages
 "*****************************************************************************
 Plug 'morhetz/gruvbox'
+Plug 'sainnhe/sonokai'
+Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
@@ -45,12 +47,14 @@ call plug#end()
 "*****************************************************************************
 "" Basic Setup
 "*****************************************************************************"
+let g:sonokai_style = 'atlantis'
 set nocompatible " Don't pretend to be vi
 syntax enable " Enable syntax highlighting
 filetype plugin on " Detect filetype and use filetype specific plugins
 runtime macros/matchit.vim " Enable matchit plugin
 set wildmenu " Activate command line completion
 colorscheme gruvbox " Set theme
+" colorscheme sonokai " Set theme
 set colorcolumn=120 " Line length limit indicator
 set number relativenumber " Show hybrid line numbers
 set cursorline " Highlight current line
