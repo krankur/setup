@@ -81,7 +81,7 @@ let g:coc_global_extensions = [
     \ 'coc-emmet',
     \ 'coc-html',
     \ 'coc-json',
-    \ 'coc-rust-analyzer',
+    \ 'coc-rls',
     \ 'coc-tsserver'
     \ ]
 
