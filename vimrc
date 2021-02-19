@@ -3,7 +3,8 @@
 "*****************************************************************************
 "" Vim-PLug core
 "*****************************************************************************
-let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
+let $RTP=split(&runtimepath, ',')[0]
+let vimplug_exists=expand($RTP . '/autoload/plug.vim')
 
 if !filereadable(vimplug_exists)
     if !executable('curl')
@@ -25,8 +26,8 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "*****************************************************************************
 "" Plug install packages
 "*****************************************************************************
-Plug 'morhetz/gruvbox'
-Plug 'sainnhe/sonokai'
+
+Plug 'liuchengxu/space-vim-dark'
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-surround'
@@ -47,25 +48,36 @@ call plug#end()
 "*****************************************************************************
 "" Basic Setup
 "*****************************************************************************"
-let g:sonokai_style = 'atlantis'
+" let g:sonokai_style = 'atlantis'
 set nocompatible " Don't pretend to be vi
 syntax enable " Enable syntax highlighting
 filetype plugin on " Detect filetype and use filetype specific plugins
 runtime macros/matchit.vim " Enable matchit plugin
 set wildmenu " Activate command line completion
-colorscheme gruvbox " Set theme
+
+colorscheme space-vim-dark " Set theme
+
 " colorscheme sonokai " Set theme
-set colorcolumn=120 " Line length limit indicator
+set colorcolumn=80 " Line length limit indicator
 set number relativenumber " Show hybrid line numbers
 set cursorline " Highlight current line
 set lazyredraw " Lazy screen redraw
 set clipboard=unnamed " Enable pasting from clipboard
 let g:hardtime_default_on = 1 " set hardtime on by default for all buffers
 
+set termguicolors " Enable true colors
+set guioptions -=m " hide menubar
+set guioptions -=T " hide toolbar
+set guifont=Cascadia\ Code:h10 " set font
+set laststatus=2 " without this lightline won't show
+
 " Indentation
 set tabstop=4 " Set tab width to 4 spaces
 set shiftwidth=4 " Set indent width using '>' to 4 spaces
 set expandtab " Set tab to be spaces
+
+set backspace=indent,eol,start
+set hidden
 
 " Searching
 set hlsearch
@@ -103,10 +115,20 @@ command! -bang -nargs=* Rg
 "*****************************************************************************
 "" Key Mappings
 "*****************************************************************************
-" Fzf file search using ctrl+P
-nnoremap <C-p> :Files<Cr>
+let mapleader= ' ' " set <Leader> to SPC
+imap jk <Esc>
 
-"" GoTo code navigation.
+nnoremap <Leader>j <C-W><C-J>
+nnoremap <Leader>k <C-W><C-K>
+nnoremap <Leader>l <C-W><C-L>
+nnoremap <Leader>h <C-W><C-H>
+
+" Fzf file search using SPC P (will use Ripgrep)
+nnoremap <Leader>p :Files<Cr>
+
+"*****************************************************************************
+"" GoTo Code Navigation
+"*****************************************************************************
 " Go to definition
 nmap <silent> gd <Plug>(coc-definition)
 " Go to type definition
@@ -116,7 +138,9 @@ nmap <silent> gi <Plug>(coc-implementation)
 " Go to references
 nmap <silent> gr <Plug>(coc-references)
 
+"*****************************************************************************
 "" CtrlSF (search across files)
+"*****************************************************************************
 " Open project search
 nmap <C-F>f <Plug>CtrlSFPrompt
 " Open project search with highlighted text as search query
