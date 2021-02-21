@@ -54,6 +54,7 @@ syntax enable " Enable syntax highlighting
 filetype plugin on " Detect filetype and use filetype specific plugins
 runtime macros/matchit.vim " Enable matchit plugin
 set wildmenu " Activate command line completion
+set noswapfile
 
 colorscheme space-vim-dark " Set theme
 
@@ -78,7 +79,7 @@ set expandtab " Set tab to be spaces
 
 set backspace=indent,eol,start
 set hidden
-
+let &fcs='eob: '
 " Searching
 set hlsearch
 set incsearch
@@ -101,16 +102,15 @@ let g:coc_global_extensions = [
 command! -nargs=0 Format :call CocAction('format')
 
 " Text search setup using ripgrep
-command! -bang -nargs=* Rg
-    \ call fzf#vim#grep(
-    \   'rg --column --line-number --no-heading --color=always --smart-case '
-    \       .shellescape(<q-args>),
-    \   1,
-    \   fzf#vim#with_preview(
-    \       { 'options': '--delimiter : --nth 4..' },
-    \       'right:50%'
-    \   ),
-    \   <bang>0) 
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 
 "*****************************************************************************
 "" Key Mappings
@@ -123,8 +123,16 @@ nnoremap <Leader>k <C-W><C-K>
 nnoremap <Leader>l <C-W><C-L>
 nnoremap <Leader>h <C-W><C-H>
 
+" jump to previous buffer
+nnoremap <Leader><TAB> <C-^>
+
+" use TAB to navigate the auto-complete dropdown
+inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
+
 " Fzf file search using SPC P (will use Ripgrep)
 nnoremap <Leader>p :Files<Cr>
+nnoremap <Leader>b :Buffers<Cr>
 
 "*****************************************************************************
 "" GoTo Code Navigation
@@ -141,14 +149,16 @@ nmap <silent> gr <Plug>(coc-references)
 "*****************************************************************************
 "" CtrlSF (search across files)
 "*****************************************************************************
+let g:ctrlsf_ackprg = 'rg'
+
 " Open project search
-nmap <C-F>f <Plug>CtrlSFPrompt
+nmap <Leader>f <Plug>CtrlSFPrompt
 " Open project search with highlighted text as search query
 vmap <C-F>f <Plug>CtrlSFVwordPath
 " Open project search with highlighted text as search query and execute immediately
 vmap <C-F>F <Plug>CtrlSFVwordExec
 " Open project search with the word under cursor as search query
-nmap <C-F>n <Plug>CtrlSFCwordPath
+nmap <Leader>n <Plug>CtrlSFCwordPath
 " Open project search with the word under cursor as search query with word boundary
 nmap <C-F>B <Plug>CtrlSFCCwordPath
 " Open project search with the word under cursor as the last search pattern for vim
