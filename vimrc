@@ -40,7 +40,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'dyng/ctrlsf.vim'
+" Plug 'dyng/ctrlsf.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'takac/vim-hardtime'
 call plug#end()
@@ -67,9 +67,11 @@ set clipboard=unnamed " Enable pasting from clipboard
 let g:hardtime_default_on = 1 " set hardtime on by default for all buffers
 
 set termguicolors " Enable true colors
-set guioptions -=m " hide menubar
-set guioptions -=T " hide toolbar
-set guifont=Cascadia\ Code:h10 " set font
+if has("gui_running")
+    set guioptions -=m " hide menubar
+    set guioptions -=T " hide toolbar
+    set guifont=Cascadia\ Code:h10 " set font
+endif
 set laststatus=2 " without this lightline won't show
 
 " Indentation
@@ -85,6 +87,7 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+set grepprg=rg\ --vimgrep\ --smart-case\ --follow " make :grep use ripgrep
 
 "*****************************************************************************
 "" Coc config
@@ -103,11 +106,11 @@ command! -nargs=0 Format :call CocAction('format')
 
 " Text search setup using ripgrep
 function! RipgrepFzf(query, fullscreen)
-  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
-  let initial_command = printf(command_fmt, shellescape(a:query))
-  let reload_command = printf(command_fmt, '{q}')
-  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+    let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+    let initial_command = printf(command_fmt, shellescape(a:query))
+    let reload_command = printf(command_fmt, '{q}')
+    let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+    call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
 
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
@@ -130,9 +133,20 @@ nnoremap <Leader><TAB> <C-^>
 inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
 
-" Fzf file search using SPC P (will use Ripgrep)
+"*****************************************************************************
+"" FZF mappings
+"*****************************************************************************
+" file search (set FZF_DEFAULT_COMMAND env var to "Rg --files" to use Ripgrep)
 nnoremap <Leader>p :Files<Cr>
 nnoremap <Leader>b :Buffers<Cr>
+" text search in all files
+nnoremap <Leader>f :Rg<Cr>
+" search command history
+nnoremap <Leader>h :History:<Cr>
+" search visited files history
+nnoremap <Leader>H :History<Cr>
+nnoremap <Leader>c :Commits<Cr>
+nnoremap <Leader>m :Marks<Cr>
 
 "*****************************************************************************
 "" GoTo Code Navigation
@@ -146,33 +160,3 @@ nmap <silent> gi <Plug>(coc-implementation)
 " Go to references
 nmap <silent> gr <Plug>(coc-references)
 
-"*****************************************************************************
-"" CtrlSF (search across files)
-"*****************************************************************************
-let g:ctrlsf_ackprg = 'rg'
-
-" Open project search
-nmap <Leader>f <Plug>CtrlSFPrompt
-" Open project search with highlighted text as search query
-vmap <C-F>f <Plug>CtrlSFVwordPath
-" Open project search with highlighted text as search query and execute immediately
-vmap <C-F>F <Plug>CtrlSFVwordExec
-" Open project search with the word under cursor as search query
-nmap <Leader>n <Plug>CtrlSFCwordPath
-" Open project search with the word under cursor as search query with word boundary
-nmap <C-F>B <Plug>CtrlSFCCwordPath
-" Open project search with the word under cursor as the last search pattern for vim
-nmap <C-F>p <Plug>CtrlSFPwordPath
-" Open search result window 
-nnoremap <C-F>o :CtrlSFOpen<CR>
-" Toggle search result window 
-nnoremap <C-F>t :CtrlSFToggle<CR>
-" Toggle search result window from insert mode
-inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
-" Open project search to search word with boundary
-nnoremap <C-F>b :CtrlSF -R '\b\b'<Left><Left><Left>
-" Open project search to perform a case sensitive search with word boundary
-nnoremap <C-F>s :CtrlSF -S -R '\b\b'<Left><Left><Left>
-" Open project search to perform a case sensitive search with word boundary
-" with word under the cursor as search query
-nnoremap <C-F>S :CtrlSF -S -R '\b<c-r>=expand("<cword>")<cr>\b'<Left><Left><Left>
