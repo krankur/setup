@@ -40,7 +40,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-" Plug 'dyng/ctrlsf.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'takac/vim-hardtime'
 call plug#end()
@@ -59,7 +58,7 @@ set noswapfile
 colorscheme space-vim-dark " Set theme
 
 " colorscheme sonokai " Set theme
-set colorcolumn=80 " Line length limit indicator
+set colorcolumn=120 " Line length limit indicator
 set number relativenumber " Show hybrid line numbers
 set cursorline " Highlight current line
 set lazyredraw " Lazy screen redraw
@@ -98,7 +97,8 @@ let g:coc_global_extensions = [
     \ 'coc-html',
     \ 'coc-json',
     \ 'coc-rls',
-    \ 'coc-tsserver'
+    \ 'coc-tsserver',
+    \ 'coc-explorer'
     \ ]
 
 " Add `:Format` command to format current buffer.
@@ -121,10 +121,10 @@ command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 let mapleader= ' ' " set <Leader> to SPC
 imap jk <Esc>
 
-nnoremap <Leader>j <C-W><C-J>
-nnoremap <Leader>k <C-W><C-K>
-nnoremap <Leader>l <C-W><C-L>
-nnoremap <Leader>h <C-W><C-H>
+nnoremap <Leader>wj <C-W><C-J>
+nnoremap <Leader>wk <C-W><C-K>
+nnoremap <Leader>wl <C-W><C-L>
+nnoremap <Leader>wh <C-W><C-H>
 
 " jump to previous buffer
 nnoremap <Leader><TAB> <C-^>
@@ -133,20 +133,21 @@ nnoremap <Leader><TAB> <C-^>
 inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
 
+nnoremap <Leader>e :CocCommand explorer<CR>
 "*****************************************************************************
 "" FZF mappings
 "*****************************************************************************
 " file search (set FZF_DEFAULT_COMMAND env var to "Rg --files" to use Ripgrep)
-nnoremap <Leader>p :Files<Cr>
-nnoremap <Leader>b :Buffers<Cr>
+nnoremap <Leader>fp :Files<Cr>
+nnoremap <Leader>fb :Buffers<Cr>
 " text search in all files
-nnoremap <Leader>f :Rg<Cr>
+nnoremap <Leader>ff :Rg<Cr>
 " search command history
-nnoremap <Leader>h :History:<Cr>
+nnoremap <Leader>fh :History:<Cr>
 " search visited files history
-nnoremap <Leader>H :History<Cr>
-nnoremap <Leader>c :Commits<Cr>
-nnoremap <Leader>m :Marks<Cr>
+nnoremap <Leader>fH :History<Cr>
+nnoremap <Leader>fc :Commits<Cr>
+nnoremap <Leader>fm :Marks<Cr>
 
 "*****************************************************************************
 "" GoTo Code Navigation
