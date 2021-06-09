@@ -28,6 +28,12 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "*****************************************************************************
 
 Plug 'liuchengxu/space-vim-dark'
+Plug 'pineapplegiant/spaceduck'
+Plug 'yuttie/hydrangea-vim'
+Plug 'tomasiser/vim-code-dark'
+
+" Plug 'yaoyuan0553/vim-code-dark'
+" Plug 'dunstontc/vim-vscode-theme'
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-surround'
@@ -38,6 +44,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+" Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'jiangmiao/auto-pairs'
@@ -47,6 +54,15 @@ call plug#end()
 "*****************************************************************************
 "" Basic Setup
 "*****************************************************************************"
+" Show syntax highlighting groups for word under cursor
+nmap <C-S-P> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+    if !exists("*synstack")
+        return
+    endif
+    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
 " let g:sonokai_style = 'atlantis'
 set nocompatible " Don't pretend to be vi
 syntax enable " Enable syntax highlighting
@@ -55,7 +71,7 @@ runtime macros/matchit.vim " Enable matchit plugin
 set wildmenu " Activate command line completion
 set noswapfile
 
-colorscheme space-vim-dark " Set theme
+colorscheme codedark " Set theme
 
 " colorscheme sonokai " Set theme
 set colorcolumn=120 " Line length limit indicator
@@ -69,7 +85,7 @@ set termguicolors " Enable true colors
 if has("gui_running")
     set guioptions -=m " hide menubar
     set guioptions -=T " hide toolbar
-    set guifont=Cascadia\ Code:h10 " set font
+    set guifont=Cascadia\ Code:h9 " set font
 endif
 set laststatus=2 " without this lightline won't show
 
