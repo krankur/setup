@@ -1,0 +1,182 @@
+{
+    "editor.lineNumbers": "relative",
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "editor.minimap.enabled": false,
+    "files.autoSave": "afterDelay",
+    "redhat.telemetry.enabled": false,
+    "workbench.colorTheme": "Visual Studio Dark - C++",
+    "editor.tokenColorCustomizations": {
+        "[Visual Studio Dark - C++]": {
+            "textMateRules": [
+                {
+                    "scope": "markup.bold",
+                    "settings": {
+                        "foreground": "#61bc75",
+                        "fontStyle": "bold",
+                    }
+                },
+                {
+                    "scope": "markup.italic",
+                    "settings": {
+                        "foreground": "#dcdcaa",
+                    }
+                }
+            ]
+        }
+    },
+    // Vim
+    "vim.leader": "<space>",
+    "vim.useSystemClipboard": true,
+    "vim.hlsearch": true,
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [ "[", " " ],
+            "after": [ "O", "<Esc>", "j", "^" ]
+        },
+        {
+            "before": [ "]", " " ],
+            "after": [ "o", "<Esc>", "k", "^" ]
+        },
+        {
+            "before": [ "]", "l" ],
+            "commands": [ "editor.action.moveLinesDownAction" ]
+        },
+        {
+            "before": [ "[", "l" ],
+            "commands": [ "editor.action.moveLinesUpAction" ]
+        }
+    ],
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [ "j", "k" ],
+            "after": [ "<Esc>" ]
+        },
+        {
+            "before": [ "<backspace>" ],
+            "after": [ "" ]
+        }
+    ],
+    "vim.commandLineModeKeyBindings": [
+    
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [ "<leader>", "w" ],
+            "commands": [ "workbench.action.splitEditor" ]
+        },
+        {
+            "before": [ "<leader>", "s" ],
+            "commands": [ "workbench.action.toggleSidebarVisibility" ]
+        },
+        {
+            "before": [ "<leader>", "e" ],
+            "commands": [ "workbench.files.action.showActiveFileInExplorer" ]
+        },
+        {
+            "before": [ "<leader>", "c" ],
+            "commands": [ "workbench.action.showCommands" ]
+        },
+        {
+            "before": [ "<leader>", "p" ],
+            "commands": [ "workbench.action.quickOpen" ]
+        },
+        {
+            "before": [ "<leader>", "t" ],
+            "commands": [ "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup" ]
+        },
+        {
+            "before": [ "backspace" ],
+            "commands": [ "workbench.action.navigateBack" ],
+            "when": [ "canNavigateBack" ]
+        },
+        {
+            "before": [ "g", "[" ],
+            "commands": [ "workbench.action.navigateBack" ],
+            "when": [ "canNavigateBack" ]
+        },
+        {
+            "before": [ "g", "]" ],
+            "commands": [ "workbench.action.navigateForward" ],
+            "when": [ "canNavigateForward" ]
+        },
+        {
+            "before": [ "g", "l" ],
+            "after": [ "$" ]
+        },
+        {
+            "before": [ "g", "h" ],
+            "after": [ "^" ]
+        },
+        {
+            "before": [ "g", "f" ],
+            "commands": [ "actions.find" ],
+            "when": [ "dendron:pluginActive && editorFocus || editorIsOpen" ]
+        },
+        {
+            "before": [ "g", "u" ],
+            "commands": [ "editor.action.startFindReplaceAction" ],
+            "when": [ "dendron:pluginActive && editorFocus || editorIsOpen" ]
+        },
+        {
+            "before": [ "g", "s" ],
+            "commands": [ "workbench.action.findInFiles" ]
+        },
+        {
+            "before": [ "g", "r" ],
+            "commands": [ "workbench.action.replaceInFiles" ]
+        },
+
+        // Dendron
+        {
+            "before": [ "<enter>" ],
+            "commands": [ "dendron.gotoNote" ],
+            "when": [ "dendron:pluginActive && vim.active && editorTextFocus" ]
+        },
+        {
+            "before": [ "g", "w", "e" ],
+            "commands": [ "dendron.treeView.focus" ],
+            "when": [ "dendron:pluginActive && vim.active && editorTextFocus" ]
+        },
+        {
+            "before": [ "g", "w", "l" ],
+            "commands": [ "dendron.lookupNote" ],
+            "when": [ "dendron:pluginActive && vim.active" ]
+        },
+        {
+            "before": [ "g", "w", "r" ],
+            "commands": [ "dendron.renameNote" ],
+            "when": [ "dendron:pluginActive && vim.active" ]
+        },
+        {
+            "before": [ "g", "w", "f" ],
+            "commands": [ "dendron.refactorHeirarchy" ],
+            "when": [ "dendron:pluginActive && vim.active" ]
+        },
+        {
+            "before": [ "g", "w", "n" ],
+            "commands": [ "dendron.createNote" ],
+            "when": [ "dendron:pluginActive && vim.active" ]
+        },
+        {
+            "before": [ "g", "w", "m" ],
+            "commands": [ "dendron.moveNote" ],
+            "when": [ "dendron:pluginActive && vim.active" ]
+        },
+        {
+            "before": [ "g", "w", "d" ],
+            "commands": [ "dendron.delete" ],
+            "when": [ "dendron:pluginActive && vim.active" ]
+        },
+        {
+            "before": [ "g", "w", "i" ],
+            "commands": [ "dendron.insertNoteLink" ],
+            "when": [ "dendron:pluginActive && vim.active" ]
+        },
+    ],
+    "editor.accessibilitySupport": "off",
+    "[markdown]": {
+        "editor.quickSuggestions": {
+            "other": "on"
+        }
+    },
+}
