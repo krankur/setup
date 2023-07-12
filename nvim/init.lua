@@ -25,10 +25,6 @@ P.S. You can delete this when you're done too. It's your config now :)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-local function map(mode)
-
-end
-
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
@@ -183,16 +179,8 @@ require('lazy').setup({
     --       Uncomment any of the lines below to enable them.
     -- require 'kickstart.plugins.autoformat',
     -- require 'kickstart.plugins.debug',
-
-    -- NOTE: The import below automatically adds your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
-    --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
-    --    up-to-date with whatever is in the kickstart repo.
-    --
-    --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-    -- { import = 'custom.plugins' },
 }, {})
 
--- vim.cmd.colorscheme 'slate'
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
@@ -242,9 +230,15 @@ vim.o.smartindent = true
 
 -- [[ Basic Keymaps ]]
 
+local function map(mode, from, to, opts)
+    vim.keymap.set(mode, from, to, opts)
+end
+
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+-- vim.keymap.set('i', 'jk', '<Esc>', { noremap = true })
+map('i', 'jk', '<Esc>', { noremap = true })
+map({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
