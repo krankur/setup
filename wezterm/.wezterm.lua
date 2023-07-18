@@ -20,6 +20,10 @@ end
 
 -- For example, changing the color scheme:
 config.color_scheme = 'Gruvbox Material (Gogh)'
+config.font_size = 12.0
+config.default_prog = { "nu" }
+config.window_decorations = "NONE"
+config.hide_tab_bar_if_only_one_tab = true
 
 -- and finally, return the configuration to wezterm
 return config
