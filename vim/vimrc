@@ -1,23 +1,48 @@
-" Change location of vim generated files
+" Change location of vim generated files.
 set directory=~/vimstate/swp//,.
 set backupdir=~/vimstate/bkp//,.
 set undodir=~/vimstate/undo//,.
 let g:netrw_home="~/vimstate"
 
+" Show a line cursor in insert mode on Windows.
 if has('win32')
-	let &t_SI = "\<Esc>[6 q"
-	let &t_SR = "\<Esc>[4 q"
-	let &t_EI = "\<Esc>[2 q"
+    let &t_SI="\<Esc>[6 q"
+    let &t_SR="\<Esc>[4 q"
+    let &t_EI="\<Esc>[2 q"
 endif
 
-" Enable filetype support
+" Detect filetype.
 filetype plugin indent on
+" Enable syntax highlighting.
 syntax on
 
-" This is a built-in plugin
-" Add ability to hit `%` on `if` to jump to `else`
+" Don't show cursorline in netrw.
+let g:netrw_cursor=0
+
+" This is a built-in plugin.
+" Add ability to hit `%` on `if` to jump to `else`.
 packadd! matchit
 
+" Indentation.
 set autoindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+set backspace=indent,eol,start
+" Look in header files as well during code completion.
+set complete+=d
+" Keep buffers loaded unless explicitly closed.
+set hidden
+" Search as you type.
+set incsearch
+
+" Show line numbers.
+set number
+
+set tags=./tags;,tags;
+set grepprg=rg\ -nH
 
 inoremap jk <Esc>
+noremap <BS> <C-^>
+
