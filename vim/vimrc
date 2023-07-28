@@ -39,6 +39,7 @@ set incsearch
 set number
 
 set tags=./tags;,tags;
+
 if executable('rg')
     set grepprg=rg\ -nH
 endif
