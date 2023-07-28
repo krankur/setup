@@ -5,11 +5,9 @@ set undodir=~/vimstate/undo//,.
 let g:netrw_home="~/vimstate"
 
 " Show a line cursor in insert mode on Windows.
-if has('win32')
-    let &t_SI="\<Esc>[6 q"
-    let &t_SR="\<Esc>[4 q"
-    let &t_EI="\<Esc>[2 q"
-endif
+let &t_SI="\<Esc>[6 q"
+let &t_SR="\<Esc>[4 q"
+let &t_EI="\<Esc>[2 q"
 
 " Detect filetype.
 filetype plugin indent on
@@ -41,8 +39,16 @@ set incsearch
 set number
 
 set tags=./tags;,tags;
-set grepprg=rg\ -nH
+if executable('rg')
+    set grepprg=rg\ -nH
+endif
 
+" Keymaps.
 inoremap jk <Esc>
 noremap <BS> <C-^>
+
+noremap gh <C-w><C-h>
+noremap gj <C-w><C-j>
+noremap gk <C-w><C-k>
+noremap gl <C-w><C-l>
 
