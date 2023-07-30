@@ -13,6 +13,7 @@ let &t_EI="\<Esc>[2 q"
 filetype plugin indent on
 " Enable syntax highlighting.
 syntax on
+set termguicolors
 
 " Don't show cursorline in netrw.
 let g:netrw_cursor=0
@@ -27,16 +28,27 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+" Make backspace work across lines in insert mode.
 set backspace=indent,eol,start
+
+set nowrap
+
 " Look in header files as well during code completion.
 set complete+=d
+
 " Keep buffers loaded unless explicitly closed.
 set hidden
+
 " Search as you type.
 set incsearch
 
 " Show line numbers.
 set number
+
+" Show completion options in command mode.
+set wildmenu
+
+set laststatus=2
 
 set tags=./tags;,tags;
 
@@ -52,4 +64,6 @@ noremap gh <C-w><C-h>
 noremap gj <C-w><C-j>
 noremap gk <C-w><C-k>
 noremap gl <C-w><C-l>
+
+tnoremap jk <C-\><C-n>
 

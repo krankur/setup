@@ -1,4 +1,3 @@
-print("Hello")
 local g = vim.g
 
 g.mapleader = " "
