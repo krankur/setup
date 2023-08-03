@@ -114,4 +114,4 @@ ZSH_THEME_GIT_PROMPT_CLEAN="]"
 # PROMPT='%{$fg[green]%}[%D{%L:%M} %D{%a %f/%m}] '$PROMPT
 
 #### ALIASES ####
-alias w_setup="cd /c/Users/kmran/OneDrive/workspace/setup"
+alias wsetup="cd /c/Users/kmran/OneDrive/workspace/setup"
