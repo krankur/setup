@@ -45,6 +45,23 @@ if executable('rg')
     set grepprg=rg\ -nH
 endif
 
+colorscheme mine
+
+if g:colors_name == "mine"
+    augroup bracket_hl
+        au!
+        au Syntax * syn match Braces display "[{}()\[\]]" containedin=ALL
+    augroup END
+    hi Braces guifg=#719611 ctermfg=64
+endif
+
+lua << EOF
+-- Add cscope support for newer versions of nvim.
+require("cscope_maps").setup({
+    disable_maps = true
+})
+EOF
+
 " Keymaps.
 inoremap jk <Esc>
 noremap <BS> <C-^>
@@ -56,13 +73,15 @@ noremap gl <C-w><C-l>
 
 tnoremap jk <C-\><C-n>
 
-colorscheme mine
-
-if g:colors_name == 'mine'
-    augroup bracket_hl
-        au!
-        au Syntax * syn match Braces display '[{}()\[\]]' containedin=ALL
-    augroup END
-    hi Braces guifg=#719611 ctermfg=64
-endif
+nmap <leader>cs :Cscope find s <C-R>=expand("<cword>")<CR><CR>
+nmap <leader>cg :Cscope find g <C-R>=expand("<cword>")<CR><CR>
+nmap <leader>cc :Cscope find c <C-R>=expand("<cword>")<CR><CR>
+nmap <leader>ct :Cscope find t <C-R>=expand("<cword>")<CR><CR>
+nmap <leader>ce :Cscope find e <C-R>=expand("<cword>")<CR><CR>
+nmap <leader>cf :Cscope find f <C-R>=expand("<cfile>")<CR><CR>
+nmap <leader>ci :Cscope find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <leader>cd :Cscope find d <C-R>=expand("<cword>")<CR><CR>
+nmap <leader>ca :Cscope find a <C-R>=expand("<cword>")<CR><CR>
+nmap <leader>cb :Cscope build<CR>
+nmap <leader>c] :Cstag <C-R>=expand("<cword>")<CR><CR>
 

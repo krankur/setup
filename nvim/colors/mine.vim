@@ -66,7 +66,7 @@ hi TabLineFill guifg=#9d9080 guibg=#ddd6c0 guisp=#ddd6c0 gui=bold ctermfg=247 ct
 hi WarningMsg guifg=#ee9a00 guibg=NONE guisp=NONE gui=NONE ctermfg=172 ctermbg=NONE cterm=NONE
 " hi VisualNOS guifg=#192224 guibg=#F9F9FF guisp=#F9F9FF gui=underline ctermfg=235 ctermbg=189 cterm=underline
 hi DiffDelete guifg=NONE guibg=#554422 guisp=#554422 gui=NONE ctermfg=NONE ctermbg=94 cterm=NONE
-hi ModeMsg guifg=#000000 guibg=#00ff00 guisp=#00ff00 gui=bold ctermfg=0 ctermbg=10 cterm=bold
+hi ModeMsg guifg=#000000 guibg=#719611 guisp=#719611 gui=bold ctermfg=0 ctermbg=10 cterm=bold
 hi CursorColumn guifg=NONE guibg=#000000 guisp=#000000 gui=NONE ctermfg=NONE ctermbg=0 cterm=NONE
 " hi Define guifg=#BD9800 guibg=NONE guisp=NONE gui=NONE ctermfg=1 ctermbg=NONE cterm=NONE
 hi Function guifg=#ddcca8 guibg=NONE guisp=NONE gui=bold ctermfg=187 ctermbg=NONE cterm=bold
@@ -82,6 +82,7 @@ hi Type guifg=#996644 guibg=NONE guisp=NONE gui=bold ctermfg=137 ctermbg=NONE ct
 hi DiffChange guifg=NONE guibg=#224455 guisp=#224455 gui=NONE ctermfg=NONE ctermbg=23 cterm=NONE
 hi Cursor guifg=NONE guibg=#626262 guisp=#626262 gui=NONE ctermfg=NONE ctermbg=241 cterm=NONE
 hi SpellLocal guifg=NONE guibg=NONE guisp=#008b8b gui=underline ctermfg=0 ctermbg=0 cterm=underline
+hi Error guifg=#ff6a6a guibg=NONE guisp=NONE gui=NONE ctermfg=167 ctermbg=NONE cterm=NONE
 " hi Error guifg=#A1A6A8 guibg=#912C00 guisp=#912C00 gui=NONE ctermfg=248 ctermbg=88 cterm=NONE
 hi PMenu guifg=#000000 guibg=#ccc0aa guisp=#ccc0aa gui=NONE ctermfg=NONE ctermbg=187 cterm=NONE
 hi SpecialKey guifg=#cc6644 guibg=NONE guisp=NONE gui=italic ctermfg=167 ctermbg=NONE cterm=NONE
@@ -100,4 +101,10 @@ hi DiffAdd guifg=NONE guibg=#445544 guisp=#445544 gui=NONE ctermfg=NONE ctermbg=
 hi TabLine guifg=#ddd6c0 guibg=#9d9080 guisp=#9d9080 gui=bold ctermfg=187 ctermbg=247 cterm=bold
 " hi cursorim guifg=#192224 guibg=#536991 guisp=#536991 gui=NONE ctermfg=235 ctermbg=60 cterm=NONE
 hi Visual guifg=#000000 guibg=#768798 guisp=#768798 gui=NONE ctermfg=0 ctermbg=243 cterm=NONE
+
+hi htmlBold guifg=#909a9f guibg=NONE guisp=NONE gui=bold ctermfg=247 ctermbg=NONE cterm=bold
+hi htmlItalic guifg=#998877 guibg=NONE guisp=NONE gui=italic ctermfg=137 ctermbg=NONE cterm=NONE
+
+hi default link mdTag Comment
+hi default link mdInlineCode Error
 

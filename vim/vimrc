@@ -67,3 +67,13 @@ noremap gl <C-w><C-l>
 
 tnoremap jk <C-\><C-n>
 
+colorscheme mine
+
+if g:colors_name == "mine"
+    augroup bracket_hl
+        au!
+        au Syntax * syn match Braces display "[{}()\[\]]" containedin=ALL
+    augroup END
+    hi Braces guifg=#719611 ctermfg=64
+endif
+

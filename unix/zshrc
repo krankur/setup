@@ -115,3 +115,8 @@ ZSH_THEME_GIT_PROMPT_CLEAN="]"
 
 #### ALIASES ####
 alias wsetup="cd /c/Users/kmran/OneDrive/workspace/setup"
+alias make=mingw32-make
+alias wgdev="cd /c/Users/kmran/OneDrive/workspace/gdev"
+
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+source ~/workspace/fzf-tab/fzf-tab.plugin.zsh

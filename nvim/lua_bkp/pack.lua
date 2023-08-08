@@ -42,19 +42,6 @@ require("lazy").setup({
     "tpope/vim-vinegar",
 
     {
-        "sainnhe/gruvbox-material",
-        priority = 1000,
-        -- config = function()
-        --     vim.cmd.colorscheme "gruvbox-material"
-        -- end,
-    },
-
-    {
-        "jeetsukumaran/vim-nefertiti",
-        priority = 1000,
-    },
-
-    {
         -- Adds git releated signs to the gutter, as well as utilities for managing changes
         "lewis6991/gitsigns.nvim",
         opts = {
@@ -148,9 +135,6 @@ require("lazy").setup({
         },
     },
 
-    -- Useful plugin to show you pending keybinds.
-    -- { 'folke/which-key.nvim', opts = {} },
-
     {
         -- Add indentation guides even on blank lines
         "lukas-reineke/indent-blankline.nvim",
@@ -163,3 +147,4 @@ require("lazy").setup({
     },
 
 })
+
