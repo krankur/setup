@@ -7,7 +7,7 @@ mkdir "$CSCOPE_DIR"
 fi
 
 echo "Finding files ..."
-find . -name '*.c' \
+find ./src -name '*.c' \
 -o -name '*.h' \
 -o -name '*.cpp' \
 -o -name '*.hpp' > "$CSCOPE_DIR/cscope.files"

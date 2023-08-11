@@ -1,4 +1,4 @@
-### Windows (Using MSYS2)
+### Windows Setup (Using MSYS2)
 
 Reasons to use *MSYS2*:
 
@@ -19,7 +19,14 @@ Setup steps:
 - Install tools:
     - Install *MSYS2* [https://www.msys2.org/](https://www.msys2.org/).
     - Launch *MSYS2 UCRT64* from Windows menu.
-    - Install the following using *pacman -S <package_name>*: *vim*, *neovim*, *ctags*, *cscope*, *gcc*, *gdb*, *ripgrep*, *git*, *zsh* (and *node* if working on a *js* or *ts* project). Install the *ucrt64* versions of the apps if available.  If LSP is required, install cmake as well to generate *compile_commands.json*.
+    - Install the following using *pacman -S <package_name>*: *vim*, *neovim*, *ctags*, *cscope*, *gcc*, *gdb*, *ripgrep*, *git*, *unzip*, *zsh* (and *node* if working on a *js* or *ts* project). Install the *ucrt64* versions of the apps if available.  If LSP is required, install *cmake* and *ninja* as well to generate *compile_commands.json*.
+    - Install *win32yank* by running the following:
+    ```sh
+    curl -sLo /tmp/win32yank.zip https://github.com/equalsraf/win32yank/releases/download/v0.1.1/win32yank-x64.zip
+    unzip -p /tmp/win32yank.zip win32yank.exe > /tmp/win32yank.exe
+    chmod +x /tmp/win32yank.exe
+    mv /tmp/win32yank.exe /usr/local/bin/
+    ```
 - Setup *git* (This will have to be done both on *Windows* and *MSYS2*):
     - Set global git name and email using `git config --global user.name "<full name>"` and `git config --global user.email "<email id>"`.
     - Use the GitHub account's *personal access token* as password if prompted for it during cloning or pushing. Use GitHub user ID as the username.

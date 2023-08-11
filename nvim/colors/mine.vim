@@ -102,9 +102,36 @@ hi TabLine guifg=#ddd6c0 guibg=#9d9080 guisp=#9d9080 gui=bold ctermfg=187 ctermb
 " hi cursorim guifg=#192224 guibg=#536991 guisp=#536991 gui=NONE ctermfg=235 ctermbg=60 cterm=NONE
 hi Visual guifg=#000000 guibg=#768798 guisp=#768798 gui=NONE ctermfg=0 ctermbg=243 cterm=NONE
 
-hi htmlBold guifg=#909a9f guibg=NONE guisp=NONE gui=bold ctermfg=247 ctermbg=NONE cterm=bold
-hi htmlItalic guifg=#998877 guibg=NONE guisp=NONE gui=italic ctermfg=137 ctermbg=NONE cterm=NONE
+" hi htmlBold guifg=#909a9f guibg=NONE guisp=NONE gui=bold ctermfg=247 ctermbg=NONE cterm=bold
+" hi htmlBold guifg=#cd7c54 guibg=NONE guisp=NONE gui=bold ctermfg=247 ctermbg=NONE cterm=bold
+" hi htmlBold guifg=#bbaa88 guibg=#423a31 guisp=NONE gui=NONE ctermfg=167 ctermbg=NONE cterm=NONE
+hi htmlBold guifg=#719611 guibg=NONE guisp=NONE gui=NONE ctermfg=64 ctermbg=NONE cterm=NONE
+" hi htmlItalic guifg=#bbaa88 guibg=NONE guisp=NONE gui=italic ctermfg=144 ctermbg=NONE cterm=NONE
+hi htmlItalic guifg=#bbaa88 guibg=NONE guisp=NONE gui=italic ctermfg=144 ctermbg=NONE cterm=NONE
+" Red
+hi markdownCode guifg=#cd7c54 guibg=NONE guisp=NONE gui=NONE ctermfg=167 ctermbg=NONE cterm=NONE
+" Yellow
+" hi mdInlineCode guifg=#bd9700 guibg=NONE guisp=NONE gui=italic ctermfg=167 ctermbg=NONE cterm=NONE
+" Light Green
+hi markdownLinkText guifg=#A9B665 guibg=NONE guisp=NONE gui=NONE ctermfg=167 ctermbg=NONE cterm=NONE
+" Purple
+" hi markdownCodeBlock guifg=#D3869B guibg=NONE guisp=NONE gui=NONE ctermfg=167 ctermbg=NONE cterm=NONE
+" hi markdownCodeBlock guifg=#A9B665 guibg=NONE guisp=NONE gui=NONE ctermfg=167 ctermbg=NONE cterm=NONE
+" hi mdCodeBlock guifg=#D3869B guibg=NONE guisp=NONE gui=NONE ctermfg=167 ctermbg=NONE cterm=NONE
+" hi mdInlineCode guifg=#9ba858 guibg=NONE guisp=NONE gui=italic ctermfg=167 ctermbg=NONE cterm=NONE
+" hi mdInlineCode guifg=#a4a858 guibg=NONE guisp=NONE gui=italic ctermfg=167 ctermbg=NONE cterm=NONE
+" hi mdInlineCode guifg=#bbaa88 guibg=#423a31 guisp=NONE gui=NONE ctermfg=167 ctermbg=NONE cterm=NONE
+" hi markdownCodeBlock guifg=#bbaa88 guibg=#423a31 guisp=NONE gui=NONE ctermfg=167 ctermbg=NONE cterm=NONE
 
 hi default link mdTag Comment
-hi default link mdInlineCode Error
+hi default link mdInlineCodeRegion Special
+" hi default link mdInlineCodeSlash Type
+" hi default link markdownCode Type
+" hi default link markdownCodeBlock Type
+" hi default link markdownCodeDelimiter Type
+hi default link markdownCodeBlock markdownCode
+hi default link markdownCodeDelimiter Type
+hi default link markdownUrl markdownLinkText
+hi default link markdownLinkDelimiter markdownLinkText
+hi default link markdownLinkTextDelimiter markdownLinkText
 

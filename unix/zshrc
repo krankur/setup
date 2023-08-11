@@ -100,9 +100,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-#### ENV VARIABLES ####
-export W_GDEV=/d/workspace/gdev
-
 #### PROMPT ####
 PROMPT='%{$fg[green]%}[%D{%L:%M} %D{%a %f/%m}] %{$fg_bold[magenta]%}%2~$(git_prompt_info) %{$fg_bold[magenta]%}%# %{$reset_color%}'
 
@@ -113,10 +110,26 @@ ZSH_THEME_GIT_PROMPT_CLEAN="]"
 
 # PROMPT='%{$fg[green]%}[%D{%L:%M} %D{%a %f/%m}] '$PROMPT
 
-#### ALIASES ####
-alias wsetup="cd /c/Users/kmran/OneDrive/workspace/setup"
-alias make=mingw32-make
-alias wgdev="cd /c/Users/kmran/OneDrive/workspace/gdev"
-
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 source ~/workspace/fzf-tab/fzf-tab.plugin.zsh
+
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    alias setup="cd ~/workspace/setup"
+    alias gdev="cd ~/workspace/gdev"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    #### ALIASES ####
+    alias setup="cd ~/personal/workspace/setup"
+    alias gdev="cd ~/personal/workspace/gdev"
+elif [[ "$OSTYPE" == "cygwin" ]]; then
+elif [[ "$OSTYPE" == "msys" ]]; then
+    #### ENV VARIABLES ####
+    export GDEV=/d/workspace/gdev
+
+    #### ALIASES ####
+    alias make=mingw32-make
+    alias setup="cd /c/Users/kmran/OneDrive/workspace/setup"
+    alias gdev="cd /c/Users/kmran/OneDrive/workspace/gdev"
+elif [[ "$OSTYPE" == "win32" ]]; then
+elif [[ "$OSTYPE" == "freebsd"* ]]; then
+else
+fi
