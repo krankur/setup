@@ -63,8 +63,8 @@ map("i", "jk", "<Esc>", { noremap = true })
 map("n", "<BS>", "<C-^>", { noremap = true })
 
 -- Remap for dealing with word wrap
-map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+-- map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+-- map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -76,14 +76,4 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     group = yank_highlight_group,
     pattern = "*",
 })
-
-local bracket_highlight_group = vim.api.nvim_create_augroup("BracketHighlightGroup", { clear = true })
-vim.api.nvim_create_autocmd("BufReadPre", {
-    callback = function()
-        vim.cmd("syn match Braces display \"[{}()\\[\\]]\" containedin=ALL")
-    end,
-    group = bracket_highlight_group,
-    pattern = "*",
-})
-vim.cmd("hi Braces guifg=#719611 ctermfg=64")
 

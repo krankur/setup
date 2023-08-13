@@ -54,9 +54,9 @@ require("lazy").setup({
                 changedelete = { text = "~" },
             },
             on_attach = function(bufnr)
-                vim.keymap.set("n", "<leader>gp", require("gitsigns").prev_hunk, { buffer = bufnr, desc = "[G]o to [P]revious Hunk" })
-                vim.keymap.set("n", "<leader>gn", require("gitsigns").next_hunk, { buffer = bufnr, desc = "[G]o to [N]ext Hunk" })
-                vim.keymap.set("n", "<leader>ph", require("gitsigns").preview_hunk, { buffer = bufnr, desc = "[P]review [H]unk" })
+                vim.keymap.set("n", "<leader>gp", require("gitsigns").prev_hunk, { buffer = bufnr })
+                vim.keymap.set("n", "<leader>gn", require("gitsigns").next_hunk, { buffer = bufnr })
+                vim.keymap.set("n", "<leader>ph", require("gitsigns").preview_hunk, { buffer = bufnr })
             end,
         },
     },
@@ -71,7 +71,7 @@ require("lazy").setup({
 
             -- Useful status updates for LSP
             -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-            { "j-hui/fidget.nvim", tag = "legacy", opts = {} },
+            -- { "j-hui/fidget.nvim", tag = "legacy", opts = {} },
 
             -- Additional lua configuration, makes nvim stuff amazing!
             "folke/neodev.nvim",
@@ -97,14 +97,14 @@ require("lazy").setup({
         },
     },
 
-    {
-        -- Highlight, edit, and navigate code
-        "nvim-treesitter/nvim-treesitter",
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter-textobjects",
-        },
-        build = ":TSUpdate",
-    },
+    -- {
+    --     -- Highlight, edit, and navigate code
+    --     "nvim-treesitter/nvim-treesitter",
+    --     dependencies = {
+    --         "nvim-treesitter/nvim-treesitter-textobjects",
+    --     },
+    --     build = ":TSUpdate",
+    -- },
 
     -- Fuzzy Finder (files, lsp, etc)
     { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
