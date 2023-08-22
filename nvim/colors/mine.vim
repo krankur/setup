@@ -30,7 +30,7 @@ hi WildMenu guifg=#000000 guibg=#87ceeb guisp=#87ceeb gui=NONE ctermfg=0 ctermbg
 hi SignColumn guifg=#192224 guibg=#363636 guisp=#363636 gui=NONE ctermfg=235 ctermbg=238 cterm=NONE
 " hi SpecialComment guifg=#BD9800 guibg=NONE guisp=NONE gui=NONE ctermfg=1 ctermbg=NONE cterm=NONE
 " hi Typedef guifg=#536991 guibg=NONE guisp=NONE gui=bold ctermfg=60 ctermbg=NONE cterm=bold
-hi Title guifg=#778888 guibg=#2c2824 guisp=#2c2824 gui=bold ctermfg=66 ctermbg=236 cterm=bold
+hi Title guifg=#778888 guibg=NONE guisp=NONE gui=bold ctermfg=66 ctermbg=NONE cterm=bold
 hi Folded guifg=#888078 guibg=#3c3434 guisp=#3c3434 gui=italic ctermfg=101 ctermbg=237 cterm=NONE
 " hi PreCondit guifg=#ddcca8 guibg=NONE guisp=NONE gui=NONE ctermfg=187 ctermbg=NONE cterm=NONE
 " hi Include guifg=#BD9800 guibg=NONE guisp=NONE gui=NONE ctermfg=1 ctermbg=NONE cterm=NONE
@@ -105,7 +105,7 @@ hi Visual guifg=#000000 guibg=#768798 guisp=#768798 gui=NONE ctermfg=0 ctermbg=2
 " hi htmlBold guifg=#909a9f guibg=NONE guisp=NONE gui=bold ctermfg=247 ctermbg=NONE cterm=bold
 " hi htmlBold guifg=#cd7c54 guibg=NONE guisp=NONE gui=bold ctermfg=247 ctermbg=NONE cterm=bold
 " hi htmlBold guifg=#bbaa88 guibg=#423a31 guisp=NONE gui=NONE ctermfg=167 ctermbg=NONE cterm=NONE
-hi htmlBold guifg=#719611 guibg=NONE guisp=NONE gui=NONE ctermfg=64 ctermbg=NONE cterm=NONE
+" hi htmlBold guifg=#719611 guibg=NONE guisp=NONE gui=bold ctermfg=64 ctermbg=NONE cterm=NONE
 " hi htmlItalic guifg=#bbaa88 guibg=NONE guisp=NONE gui=italic ctermfg=144 ctermbg=NONE cterm=NONE
 hi htmlItalic guifg=#bbaa88 guibg=NONE guisp=NONE gui=italic ctermfg=144 ctermbg=NONE cterm=NONE
 " Red
@@ -123,6 +123,7 @@ hi markdownLinkText guifg=#A9B665 guibg=NONE guisp=NONE gui=NONE ctermfg=167 cte
 " hi mdInlineCode guifg=#bbaa88 guibg=#423a31 guisp=NONE gui=NONE ctermfg=167 ctermbg=NONE cterm=NONE
 " hi markdownCodeBlock guifg=#bbaa88 guibg=#423a31 guisp=NONE gui=NONE ctermfg=167 ctermbg=NONE cterm=NONE
 
+hi default link htmlBold Type
 hi default link mdTag Comment
 hi default link mdInlineCodeRegion Special
 " hi default link mdInlineCodeSlash Type
@@ -134,4 +135,6 @@ hi default link markdownCodeDelimiter Type
 hi default link markdownUrl markdownLinkText
 hi default link markdownLinkDelimiter markdownLinkText
 hi default link markdownLinkTextDelimiter markdownLinkText
+hi default link mdTagRef markdownLinkText
+
 

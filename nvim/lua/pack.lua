@@ -41,6 +41,17 @@ require("lazy").setup({
     -- Improve netrw
     "tpope/vim-vinegar",
 
+    -- Add cscope support to newer versions of nvim.
+    "dhananjaylatkar/cscope_maps.nvim",
+
+    {
+        "ellisonleao/glow.nvim",
+        opts = {
+            install_path = "/usr/local/bin",
+            style = "light"
+        }
+    },
+
     {
         -- Adds git releated signs to the gutter, as well as utilities for managing changes
         "lewis6991/gitsigns.nvim",

@@ -108,28 +108,38 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="*]"
 ZSH_THEME_GIT_PROMPT_CLEAN="]"
 
-# PROMPT='%{$fg[green]%}[%D{%L:%M} %D{%a %f/%m}] '$PROMPT
-
-export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
 source ~/workspace/fzf-tab/fzf-tab.plugin.zsh
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    alias setup="cd ~/workspace/setup"
-    alias gdev="cd ~/workspace/gdev"
+
+    WORKSPACE="~/workspace"
+
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-    #### ALIASES ####
-    alias setup="cd ~/personal/workspace/setup"
-    alias gdev="cd ~/personal/workspace/gdev"
+
+    WORKSPACE="~/personal/workspace"
+
 elif [[ "$OSTYPE" == "cygwin" ]]; then
 elif [[ "$OSTYPE" == "msys" ]]; then
+
+    WORKSPACE="/c/Users/kmran/OneDrive/workspace"
+
     #### ENV VARIABLES ####
     export GDEV=/d/workspace/gdev
 
     #### ALIASES ####
     alias make=mingw32-make
-    alias setup="cd /c/Users/kmran/OneDrive/workspace/setup"
-    alias gdev="cd /c/Users/kmran/OneDrive/workspace/gdev"
+
 elif [[ "$OSTYPE" == "win32" ]]; then
 elif [[ "$OSTYPE" == "freebsd"* ]]; then
 else
 fi
+
+#### ALIASES ####
+alias ws=${WORKSPACE}
+alias setup="cd ${WORKSPACE}/setup"
+alias gdev="cd ${WORKSPACE}/gdev"
+alias wk="cd ${WORKSPACE}/wiki"
+alias vrc="nvim ${WORKSPACE}/setup/nvim/init.vim"
+alias zrc="nvim ${WORKSPACE}/setup/unix/zshrc"
+

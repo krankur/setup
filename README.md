@@ -63,4 +63,5 @@ Setup steps:
     - Run *Windows Command Prompt* with admin rights ("*Run as administrator*").
     - Delete *C:\Users\<username>\AppData\Local\nvim* if it exists.
     - Create a symlink named *nvim* to the *nvim* directory under the [setup](https://github.com/krankur/setup) repo by running `mklink /D C:\Users\<username>\AppData\Local\nvim C:\Users\<username>\OneDrive\workspace\setup\nvim`.
+    - Create a directory named *.ctags.d* in the home directory and inside it create a symlink named *my.ctags* to the *ctags* file in the [setup](https://github.com/krankur/setup) repo by running `mklink /D C:\msys64\home\<username>\.ctags.d\my.ctags C:\Users\<username>\OneDrive\workspace\setup\tags\ctags`.
 

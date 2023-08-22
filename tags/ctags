@@ -1,23 +1,10 @@
---regex-html=/id="([A-Za-z0-9_-]+)"/\1/i,id,ids/
---regex-html=/class="([A-Za-z0-9_-]+)"/\1/c,class,classes/
-
 --langmap=vim:+(vimrc)
-
---langdef=json
---langmap=json:.json
---regex-json=/^[ \t]*"(.*)":/\1/k,key,keys/
-
---langdef=yaml
---langmap=yaml:.yml.yaml
---regex-yaml=/^[ \t]*(.*):/\1/k,key,keys/
 
 --langdef=dockerfile
 --langmap=dockerfile:+(Dockerfile)
 --regex-dockerfile=/^(FROM|MAINTAINER|RUN|CMD|LABEL|EXPOSE|ENV|ADD|COPY|ENTRYPOINT|VOLUME|USER|WORKDIR|ARG|ONBUILD|STOPSIGNAL|HEALTHCHECK|SHELL)/\1/d,dockerfile,dockerfiles/
 
---langdef=markdown
---langmap=markdown:.md
---regex-markdown=/:[\w-]+:/\1/t,tag,tags/
+--regex-markdown=/:([ A-Za-z0-9-]+):/\1/d,def,defs/
 
 --exclude=*.min.*
 --exclude=*.stories.*

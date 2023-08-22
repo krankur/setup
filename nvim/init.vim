@@ -1,4 +1,45 @@
-" lua require("pack")
+" ======================================================================
+" MSYS2 specific settings
+" ======================================================================
+if $SHELL == "C:\\msys64\\usr\\bin\\bash.exe" ||
+            \ $SHELL == "C:\\msys64\\usr\\bin\\zsh.exe"
+    let &shell="C:/msys64/usr/bin/zsh.exe"
+    let &shellcmdflag='-c'
+    set shellxquote=(
+    set shellslash
+    set makeprg="C:\\msys64\\ucrt64\\bin\\mingw32-make.exe"
+endif
+
+" ======================================================================
+" NeoVim specific settings and mappings
+" ======================================================================
+if has("nvim")
+    " Neovim-only Plugin Settings.
+    lua require("pack")
+
+    " Add cscope support for newer versions of nvim.
+    lua require("cscope_maps").setup({ disable_maps = true })
+
+    " Find all references to the token under cursor.
+    nnoremap <leader>cs :Cscope find s <C-R>=expand("<cword>")<CR><CR>
+    " Find global definition(s) of the token under cursor.
+    nnoremap <leader>cg :Cscope find g <C-R>=expand("<cword>")<CR><CR>
+    " Find all calls to the function name under cursor.
+    nnoremap <leader>cc :Cscope find c <C-R>=expand("<cword>")<CR><CR>
+    " Find all instances of the text under cursor.
+    nnoremap <leader>ct :Cscope find t <C-R>=expand("<cword>")<CR><CR>
+    nnoremap <leader>ce :Cscope find e <C-R>=expand("<cword>")<CR><CR>
+    nnoremap <leader>cf :Cscope find f <C-R>=expand("<cfile>")<CR><CR>
+    nnoremap <leader>ci :Cscope find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+    nnoremap <leader>cd :Cscope find d <C-R>=expand("<cword>")<CR><CR>
+    nnoremap <leader>ca :Cscope find a <C-R>=expand("<cword>")<CR><CR>
+    nnoremap <leader>cb :Cscope build<CR>
+    nnoremap <leader>c] :Cstag <C-R>=expand("<cword>")<CR><CR>
+endif
+
+" ======================================================================
+" Settings
+" ======================================================================
 
 " Detect filetype.
 filetype plugin indent on
@@ -61,51 +102,64 @@ if g:colors_name == "mine"
     hi Braces guifg=#719611 ctermfg=64
 endif
 
-" Keymaps.
+" ======================================================================
+" Mappings
+" ======================================================================
+
+" Available g Commands
+
+" ga: print ascii value of char under cursor
+" gb: na
+" gc: na
+" gd: go to definition locally
+" gh: start Select mode 
+" gi: jump to the last edit pos in curr buf
+" gj: differs from 'j' when lines wrap
+" gk: differs from 'k' when lines wrap
+" gl: na 
+" go: cursor to nth byte in buffer
+" g[: na
+" gr: virtaul replace n chars
+" gs: go to sleep for n seconds
+
+" Important Actions
+
+" jump between windows
+" navigate through the MRU files list
+" jump to a definition and back
+" jump to a reference
+" jump back and forth in the jumplist
+
+" find a file
+" search for the word under the cursor in all files
+" search for a term in all files
+" search and replace a term in all files
+
+" generate tags
+" build
+" test
+" lint
+" format
+" run
+" debug
+
 inoremap jk <Esc>
-noremap <BS> <C-^>
-
-noremap gh <C-w><C-h>
-noremap gj <C-w><C-j>
-noremap gk <C-w><C-k>
-noremap gl <C-w><C-l>
-
 tnoremap jk <C-\><C-n>
+nnoremap <BS> <C-^>
 
-cnoremap <S-]> <C-R>=split(expand('<cword>'), '\ze[A-Z]')[0]<CR>
+" Jump between windows.
+nnoremap gh <C-w><C-h>
+nnoremap gj <C-w><C-j>
+nnoremap gk <C-w><C-k>
+nnoremap gl <C-w><C-l>
+" Jump to tag definition and back.
+nnoremap gi <C-]>
+nnoremap go <C-t>
 
-" NOTE: Uncomment the following to use cscope. *cscope_maps.nvim* will
-" have to be added to the plugin list if using lua config.
-
-" Find all references to the token under cursor.
-noremap <leader>cs :Cscope find s <C-R>=expand("<cword>")<CR><CR>
-" Find global definition(s) of the token under cursor.
-noremap <leader>cg :Cscope find g <C-R>=expand("<cword>")<CR><CR>
-" Find all calls to the function name under cursor.
-noremap <leader>cc :Cscope find c <C-R>=expand("<cword>")<CR><CR>
-" Find all instances of the text under cursor.
-noremap <leader>ct :Cscope find t <C-R>=expand("<cword>")<CR><CR>
-noremap <leader>ce :Cscope find e <C-R>=expand("<cword>")<CR><CR>
-noremap <leader>cf :Cscope find f <C-R>=expand("<cfile>")<CR><CR>
-noremap <leader>ci :Cscope find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-noremap <leader>cd :Cscope find d <C-R>=expand("<cword>")<CR><CR>
-noremap <leader>ca :Cscope find a <C-R>=expand("<cword>")<CR><CR>
-noremap <leader>cb :Cscope build<CR>
-noremap <leader>c] :Cstag <C-R>=expand("<cword>")<CR><CR>
-
-" lua << EOF
-" -- Add cscope support for newer versions of nvim.
-" require("cscope_maps").setup({
-"     disable_maps = true
-" })
-" EOF
-
-" MSYS2 specific settings.
-if $SHELL == "C:\\msys64\\usr\\bin\\bash.exe" ||
-            \ $SHELL == "C:\\msys64\\usr\\bin\\zsh.exe"
-    let &shellcmdflag = '-c'
-    set shellxquote=(
-    set shellslash
-    set makeprg="C:\\msys64\\ucrt64\\bin\\mingw32-make.exe"
-endif
+nnoremap ,t :vsplit<bar>:terminal<CR>
+" Alt. mappings for the overridden ones.
+nnoremap ,i gi
+nnoremap ,j gj
+nnoremap ,k gk
+nnoremap ,b :make<bar>:copen<CR>
 
