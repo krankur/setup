@@ -140,6 +140,8 @@ alias ws=${WORKSPACE}
 alias setup="cd ${WORKSPACE}/setup"
 alias gdev="cd ${WORKSPACE}/gdev"
 alias wk="cd ${WORKSPACE}/wiki"
+
+alias nv="nvim ."
 alias vrc="nvim ${WORKSPACE}/setup/nvim/init.vim"
 alias zrc="nvim ${WORKSPACE}/setup/unix/zshrc"
 

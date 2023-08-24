@@ -77,6 +77,9 @@ set hidden
 " Search as you type.
 set incsearch
 
+set ignorecase
+set smartcase
+
 " Show line numbers.
 set number
 
@@ -112,15 +115,15 @@ endif
 " gb: na
 " gc: na
 " gd: go to definition locally
-" gh: start Select mode 
-" gi: jump to the last edit pos in curr buf
-" gj: differs from 'j' when lines wrap
-" gk: differs from 'k' when lines wrap
+" > gh: start Select mode
+" > gi: jump to the last edit pos in curr buf
+" > gj: differs from 'j' when lines wrap
+" > gk: differs from 'k' when lines wrap
 " gl: na 
-" go: cursor to nth byte in buffer
+" > go: cursor to nth byte in buffer
 " g[: na
-" gr: virtaul replace n chars
-" gs: go to sleep for n seconds
+" > gr: virtaul replace n chars
+" > gs: go to sleep for n seconds
 
 " Important Actions
 
@@ -155,6 +158,7 @@ nnoremap gl <C-w><C-l>
 " Jump to tag definition and back.
 nnoremap gi <C-]>
 nnoremap go <C-t>
+nnoremap gr :MRU<CR>j
 
 nnoremap ,t :vsplit<bar>:terminal<CR>
 " Alt. mappings for the overridden ones.

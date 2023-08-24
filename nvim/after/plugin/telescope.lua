@@ -1,5 +1,7 @@
 local map = vim.keymap.set
 local opts = { remap = false }
+local actions = require("telescope.actions")
+local builtin = require("telescope.builtin")
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
@@ -9,7 +11,11 @@ require("telescope").setup {
             i = {
                 ["<C-u>"] = false,
                 ["<C-d>"] = false,
+                ["<Esc>"] = actions.close
             },
+            n = {
+                ["q"] = actions.send_to_qflist + actions.open_qflist
+            }
         },
     },
 }
@@ -18,20 +24,19 @@ require("telescope").setup {
 pcall(require("telescope").load_extension, 'fzf')
 
 -- See `:help telescope.builtin`
-map("n", "<leader>?", require("telescope.builtin").oldfiles, opts)
-map("n", "<leader><space>", require("telescope.builtin").buffers, opts)
-map("n", "<leader>/", function()
+map("n", "gs", builtin.find_files, opts)
+map("n", "g/", function()
     -- You can pass additional configuration to telescope to change theme, layout, etc.
-    require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown {
+    builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown {
         winblend = 10,
         previewer = false,
     })
 end, opts)
-
-map("n", "<leader>gf", require("telescope.builtin").git_files, opts)
-map("n", "<leader>sf", require("telescope.builtin").find_files, opts)
-map("n", "<leader>sh", require("telescope.builtin").help_tags, opts)
-map("n", "<leader>sw", require("telescope.builtin").grep_string, opts)
-map("n", "<leader>sg", require("telescope.builtin").live_grep, opts)
-map("n", "<leader>sd", require("telescope.builtin").diagnostics, opts)
+map("n", "<leader><space>", builtin.buffers, opts)
+map("n", "<leader>?", builtin.oldfiles, opts)
+map("n", "<leader>gf", builtin.git_files, opts)
+map("n", "<leader>sh", builtin.help_tags, opts)
+map("n", "<leader>sw", builtin.grep_string, opts)
+map("n", "<leader>sg", builtin.live_grep, opts)
+map("n", "<leader>sd", builtin.diagnostics, opts)
 

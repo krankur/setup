@@ -123,17 +123,18 @@ hi markdownLinkText guifg=#A9B665 guibg=NONE guisp=NONE gui=NONE ctermfg=167 cte
 " hi mdInlineCode guifg=#bbaa88 guibg=#423a31 guisp=NONE gui=NONE ctermfg=167 ctermbg=NONE cterm=NONE
 " hi markdownCodeBlock guifg=#bbaa88 guibg=#423a31 guisp=NONE gui=NONE ctermfg=167 ctermbg=NONE cterm=NONE
 
-" hi mdTag guifg=#aaaa99 guibg=NONE guisp=NONE gui=italic ctermfg=144 ctermbg=NONE cterm=NONE
-" hi mdTag guifg=#996644 guibg=NONE guisp=NONE gui=italic ctermfg=137 ctermbg=NONE cterm=bold
-" hi default link htmlBold Title
 hi default link htmlBold Type
 hi default link mdTag Comment
 hi default link mdInlineCodeRegion Special
+" hi default link mdInlineCodeSlash Type
+" hi default link markdownCode Type
+" hi default link markdownCodeBlock Type
+" hi default link markdownCodeDelimiter Type
 hi default link markdownCodeBlock markdownCode
 hi default link markdownCodeDelimiter Type
-hi default link markdownUrl Number
-" hi default link markdownUrlDelimiter Number
+hi default link markdownUrl markdownLinkText
 hi default link markdownLinkDelimiter markdownLinkText
 hi default link markdownLinkTextDelimiter markdownLinkText
-hi default link mdTagRef Number
+hi default link mdTagRef markdownLinkText
+
 

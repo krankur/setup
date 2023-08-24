@@ -26,16 +26,14 @@ vim.opt.rtp:prepend(lazypath)
 --  You can also configure plugins after the setup call,
 --    as they will be available in your neovim runtime.
 require("lazy").setup({
-    -- NOTE: First, some plugins that don't require any configuration
-
-    -- Git related plugins
+    -- Git related plugins.
     "tpope/vim-fugitive",
     "tpope/vim-rhubarb",
 
-    -- Detect tabstop and shiftwidth automatically
+    -- Detect tabstop and shiftwidth automatically.
     "tpope/vim-sleuth",
 
-    -- Manage sessions
+    -- Manage sessions.
     "tpope/vim-obsession",
 
     "tpope/vim-unimpaired",
@@ -44,8 +42,14 @@ require("lazy").setup({
 
     "tpope/vim-repeat",
 
-    -- Improve netrw
+    -- Improve netrw.
     "tpope/vim-vinegar",
+
+    -- Access most recently used files easily.
+    "yegappan/mru",
+
+    -- Change root directory to root directory of the current file.
+    "airblade/vim-rooter",
 
     -- NOTE: This is where your plugins related to LSP can be installed.
     --  The configuration is done below. Search for lspconfig to find it below.

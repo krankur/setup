@@ -1,5 +1,7 @@
 #!/bin/bash
 
+ctags -R *
+
 CSCOPE_DIR="$PWD/cscope"
 
 if [ ! -d "$CSCOPE_DIR" ]; then
