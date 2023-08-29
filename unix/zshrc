@@ -101,7 +101,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 #### PROMPT ####
-PROMPT='%{$fg[green]%}[%D{%L:%M} %D{%a %f/%m}] %{$fg_bold[magenta]%}%2~$(git_prompt_info) %{$fg_bold[magenta]%}%# %{$reset_color%}'
+PROMPT='%{$fg[blue]%}[%D{%L:%M} %D{%a %f/%m}] %{$fg_bold[black]%}%2~$(git_prompt_info) %{$fg_bold[magenta]%}%# %{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[yellow]%}["
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
@@ -137,11 +137,9 @@ fi
 
 #### ALIASES ####
 alias ws=${WORKSPACE}
-alias setup="cd ${WORKSPACE}/setup"
-alias gdev="cd ${WORKSPACE}/gdev"
-alias wk="cd ${WORKSPACE}/wiki"
-
 alias nv="nvim ."
 alias vrc="nvim ${WORKSPACE}/setup/nvim/init.vim"
 alias zrc="nvim ${WORKSPACE}/setup/unix/zshrc"
+alias setup="nvim ${WORKSPACE}/setup"
+alias gd="nvim ${WORKSPACE}/gdev"
 

@@ -24,7 +24,7 @@ require("telescope").setup {
 pcall(require("telescope").load_extension, 'fzf')
 
 -- See `:help telescope.builtin`
-map("n", "gs", builtin.find_files, opts)
+map("n", "g[", builtin.find_files, opts)
 map("n", "g/", function()
     -- You can pass additional configuration to telescope to change theme, layout, etc.
     builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown {
@@ -32,11 +32,11 @@ map("n", "g/", function()
         previewer = false,
     })
 end, opts)
+map("n", "<Tab>f", builtin.grep_string, opts)
+map("n", "<leader>sg", builtin.live_grep, opts)
 map("n", "<leader><space>", builtin.buffers, opts)
 map("n", "<leader>?", builtin.oldfiles, opts)
 map("n", "<leader>gf", builtin.git_files, opts)
 map("n", "<leader>sh", builtin.help_tags, opts)
-map("n", "<leader>sw", builtin.grep_string, opts)
-map("n", "<leader>sg", builtin.live_grep, opts)
 map("n", "<leader>sd", builtin.diagnostics, opts)
 

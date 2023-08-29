@@ -8,8 +8,10 @@ if [ ! -d "$CSCOPE_DIR" ]; then
 mkdir "$CSCOPE_DIR"
 fi
 
+if [ -d "$PWD/src" ]
+then
 echo "Finding files ..."
-find ./src -name '*.c' \
+find "$PWD/src" -name '*.c' \
 -o -name '*.h' \
 -o -name '*.cpp' \
 -o -name '*.hpp' > "$CSCOPE_DIR/cscope.files"
@@ -19,3 +21,4 @@ cscope -b -i "$CSCOPE_DIR/cscope.files"
 
 export CSCOPE_DB="$PWD/cscope.out"
 echo "Exported CSCOPE_DB to: '$CSCOPE_DB'"
+fi

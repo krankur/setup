@@ -72,7 +72,6 @@ hi CursorColumn guifg=NONE guibg=#000000 guisp=#000000 gui=NONE ctermfg=NONE cte
 hi Function guifg=#ddcca8 guibg=NONE guisp=NONE gui=bold ctermfg=187 ctermbg=NONE cterm=bold
 hi FoldColumn guifg=#68838b guibg=#4b4b4b guisp=#4b4b4b gui=italic ctermfg=66 ctermbg=239 cterm=NONE
 hi PreProc guifg=#bbaa88 guibg=NONE guisp=NONE gui=NONE ctermfg=144 ctermbg=NONE cterm=NONE
-hi Visual guifg=#000000 guibg=#768798 guisp=#768798 gui=NONE ctermfg=0 ctermbg=110 cterm=NONE
 hi MoreMsg guifg=#2e8b57 guibg=NONE guisp=NONE gui=bold ctermfg=29 ctermbg=NONE cterm=bold
 hi SpellCap guifg=NONE guibg=NONE guisp=#0000ff gui=underline ctermfg=NONE ctermbg=NONE cterm=underline
 hi VertSplit guifg=#48403a guibg=#48403a guisp=#48403a gui=bold ctermfg=238 ctermbg=238 cterm=bold
@@ -82,7 +81,7 @@ hi Type guifg=#996644 guibg=NONE guisp=NONE gui=bold ctermfg=137 ctermbg=NONE ct
 hi DiffChange guifg=NONE guibg=#224455 guisp=#224455 gui=NONE ctermfg=NONE ctermbg=23 cterm=NONE
 hi Cursor guifg=NONE guibg=#626262 guisp=#626262 gui=NONE ctermfg=NONE ctermbg=241 cterm=NONE
 hi SpellLocal guifg=NONE guibg=NONE guisp=#008b8b gui=underline ctermfg=0 ctermbg=0 cterm=underline
-hi Error guifg=#ff6a6a guibg=NONE guisp=NONE gui=NONE ctermfg=167 ctermbg=NONE cterm=NONE
+" hi Error guifg=#ff6a6a guibg=NONE guisp=NONE gui=NONE ctermfg=167 ctermbg=NONE cterm=NONE
 " hi Error guifg=#A1A6A8 guibg=#912C00 guisp=#912C00 gui=NONE ctermfg=248 ctermbg=88 cterm=NONE
 hi PMenu guifg=#000000 guibg=#ccc0aa guisp=#ccc0aa gui=NONE ctermfg=NONE ctermbg=187 cterm=NONE
 hi SpecialKey guifg=#cc6644 guibg=NONE guisp=NONE gui=italic ctermfg=167 ctermbg=NONE cterm=NONE
@@ -100,7 +99,8 @@ hi Directory guifg=#ddaa66 guibg=NONE guisp=NONE gui=bold ctermfg=179 ctermbg=NO
 hi DiffAdd guifg=NONE guibg=#445544 guisp=#445544 gui=NONE ctermfg=NONE ctermbg=65 cterm=NONE
 hi TabLine guifg=#ddd6c0 guibg=#9d9080 guisp=#9d9080 gui=bold ctermfg=187 ctermbg=247 cterm=bold
 " hi cursorim guifg=#192224 guibg=#536991 guisp=#536991 gui=NONE ctermfg=235 ctermbg=60 cterm=NONE
-hi Visual guifg=#000000 guibg=#768798 guisp=#768798 gui=NONE ctermfg=0 ctermbg=243 cterm=NONE
+" hi Visual guifg=NONE guibg=#768798 guisp=#768798 gui=NONE ctermfg=NONE ctermbg=243 cterm=NONE
+hi Visual guifg=NONE guibg=#4f453e guisp=#4f453e gui=NONE ctermfg=NONE ctermbg=242 cterm=NONE
 
 " hi htmlBold guifg=#909a9f guibg=NONE guisp=NONE gui=bold ctermfg=247 ctermbg=NONE cterm=bold
 " hi htmlBold guifg=#cd7c54 guibg=NONE guisp=NONE gui=bold ctermfg=247 ctermbg=NONE cterm=bold
@@ -109,7 +109,7 @@ hi Visual guifg=#000000 guibg=#768798 guisp=#768798 gui=NONE ctermfg=0 ctermbg=2
 " hi htmlItalic guifg=#bbaa88 guibg=NONE guisp=NONE gui=italic ctermfg=144 ctermbg=NONE cterm=NONE
 hi htmlItalic guifg=#bbaa88 guibg=NONE guisp=NONE gui=italic ctermfg=144 ctermbg=NONE cterm=NONE
 " Red
-hi markdownCode guifg=#cd7c54 guibg=NONE guisp=NONE gui=NONE ctermfg=167 ctermbg=NONE cterm=NONE
+" hi markdownCode guifg=#cd7c54 guibg=NONE guisp=NONE gui=NONE ctermfg=167 ctermbg=NONE cterm=NONE
 " Yellow
 " hi mdInlineCode guifg=#bd9700 guibg=NONE guisp=NONE gui=italic ctermfg=167 ctermbg=NONE cterm=NONE
 " Light Green
@@ -129,6 +129,7 @@ hi markdownLinkText guifg=#A9B665 guibg=NONE guisp=NONE gui=NONE ctermfg=167 cte
 hi default link htmlBold Type
 hi default link mdTag Comment
 hi default link mdInlineCodeRegion Special
+hi default link markdownCode SpecialKey
 hi default link markdownCodeBlock markdownCode
 hi default link markdownCodeDelimiter Type
 hi default link markdownUrl Number

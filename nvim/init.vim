@@ -92,7 +92,7 @@ set laststatus=2
 set tags=./tags;,tags;
 
 if executable('rg')
-    set grepprg=rg\ -nH
+    set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 endif
 
 colorscheme mine
@@ -111,7 +111,7 @@ endif
 
 " Available g Commands
 
-" ga: print ascii value of char under cursor
+" >> ga: print ascii value of char under cursor
 " gb: na
 " gc: na
 " gd: go to definition locally
@@ -125,25 +125,32 @@ endif
 " > gr: virtaul replace n chars
 " > gs: go to sleep for n seconds
 
+" [w: na
+" [r: na
+" > [g: na
+" [v: na
+" [h: na
+" [j: na
+
 " Important Actions
 
-" jump between windows
-" navigate through the MRU files list
-" jump to a definition and back
-" jump to a reference
-" jump back and forth in the jumplist
+" > jump between windows
+" > navigate through the MRU files list
+" > jump to a definition and back
+" > jump to a reference
+" > jump back and forth in the jumplist
 
-" find a file
+" > find a file
 " search for the word under the cursor in all files
 " search for a term in all files
 " search and replace a term in all files
 
-" generate tags
-" build
+" > generate tags
+" > build
+" run
 " test
 " lint
 " format
-" run
 " debug
 
 inoremap jk <Esc>
@@ -155,15 +162,42 @@ nnoremap gh <C-w><C-h>
 nnoremap gj <C-w><C-j>
 nnoremap gk <C-w><C-k>
 nnoremap gl <C-w><C-l>
+
 " Jump to tag definition and back.
 nnoremap gi <C-]>
 nnoremap go <C-t>
-nnoremap gr :MRU<CR>j
 
-nnoremap ,t :vsplit<bar>:terminal<CR>
+nnoremap ga :MRU<CR>j
+nnoremap gs :grep! <cword><CR><bar>:copen<CR>
+
+nnoremap [g :!gentags<CR>
+
+" Jump back and forth within the jump list.
+nnoremap <Tab>j <C-i>
+nnoremap <Tab>k <C-o>
+
+nnoremap <Tab>h ^
+nnoremap <Tab>l $
+
+nnoremap <Tab>o <C-w><C-o>
+
+nnoremap <Tab>d :DeleteHiddenBuffers<CR>
+nnoremap <Tab>t :vsplit<bar>:terminal<CR>
 " Alt. mappings for the overridden ones.
-nnoremap ,i gi
-nnoremap ,j gj
-nnoremap ,k gk
-nnoremap ,b :make<bar>:copen<CR>
+nnoremap <Tab>a ga
+nnoremap <Tab>i gi
+" nnoremap <Tab>j gj
+" nnoremap <Tab>k gk
+nnoremap <Tab>b :make<bar>:copen<CR>
+nnoremap <Tab>v :source $MYVIMRC<CR>
+
+" NEED TO VERIFY
+nnoremap <Tab>r :cfdo %s//ge <bar> update
+
+autocmd Filetype c setlocal makeprg=./build.sh
+
+autocmd Filetype netrw nnoremap <buffer> gh <C-w><C-h>
+autocmd Filetype netrw nnoremap <buffer> gj <C-w><C-j>
+autocmd Filetype netrw nnoremap <buffer> gk <C-w><C-k>
+autocmd Filetype netrw nnoremap <buffer> gl <C-w><C-l>
 
