@@ -136,10 +136,14 @@ else
 fi
 
 #### ALIASES ####
-alias ws=${WORKSPACE}
+alias ws="cd ${WORKSPACE}"
+alias gsu="cd ${WORKSPACE}/setup"
+alias ggd="cd ${WORKSPACE}/gdev"
+alias gwk="cd ${WORKSPACE}/wiki"
 alias nv="nvim ."
 alias vrc="nvim ${WORKSPACE}/setup/nvim/init.vim"
 alias zrc="nvim ${WORKSPACE}/setup/unix/zshrc"
-alias setup="nvim ${WORKSPACE}/setup"
-alias gd="nvim ${WORKSPACE}/gdev"
+alias esu="nvim ${WORKSPACE}/setup"
+alias egd="nvim ${WORKSPACE}/gdev"
+alias ewk="nvim ${WORKSPACE}/wiki"
 
