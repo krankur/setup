@@ -183,7 +183,8 @@ nnoremap <Tab>o <C-w><C-o>
 
 nnoremap <Tab>d :DeleteHiddenBuffers<CR>
 nnoremap <Tab>t :vsplit<bar>:terminal<CR>
-" Alt. mappings for the overridden ones.
+
+" Remap the overridden ones.
 nnoremap <Tab>a ga
 nnoremap <Tab>i gi
 " nnoremap <Tab>j gj
@@ -196,6 +197,7 @@ nnoremap <Tab>r :cfdo %s//ge <bar> update
 
 autocmd Filetype c setlocal makeprg=./build.sh
 
+" Jump to another window from netrw.
 autocmd Filetype netrw nnoremap <buffer> gh <C-w><C-h>
 autocmd Filetype netrw nnoremap <buffer> gj <C-w><C-j>
 autocmd Filetype netrw nnoremap <buffer> gk <C-w><C-k>

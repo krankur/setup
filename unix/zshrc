@@ -126,6 +126,7 @@ elif [[ "$OSTYPE" == "msys" ]]; then
 
     #### ENV VARIABLES ####
     export GDEV=/d/workspace/gdev
+    export MINGW=/c/msys64/mingw64
 
     #### ALIASES ####
     alias make=mingw32-make
