@@ -46,6 +46,8 @@ filetype plugin indent on
 " Enable syntax highlighting.
 syntax on
 set termguicolors
+set fileformats=unix,dos
+set fileformat=unix
 
 " Don't show cursorline in netrw.
 let g:netrw_cursor=0
