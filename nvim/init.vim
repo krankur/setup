@@ -113,7 +113,7 @@ endif
 
 " Available g Commands
 
-" >> ga: print ascii value of char under cursor
+" > ga: print ascii value of char under cursor
 " gb: na
 " gc: na
 " gd: go to definition locally
@@ -178,10 +178,23 @@ nnoremap [g :!gentags<CR>
 nnoremap <Tab>j <C-i>
 nnoremap <Tab>k <C-o>
 
+" Jump to the first non-whitespace character on line.
 nnoremap <Tab>h ^
+" Jump to the last character on line.
 nnoremap <Tab>l $
 
+" Close other windows.
 nnoremap <Tab>o <C-w><C-o>
+
+" TODO: Create a custom command for <Tab>y.
+nnoremap <Tab>yw viw"+y
+nnoremap <Tab>y( vi("+y
+nnoremap <Tab>y[ vi["+y
+nnoremap <Tab>y{ vi{"+y
+nnoremap <Tab>y` vi`"+y
+nnoremap <Tab>yt vit"+y
+vnoremap <Tab>y "+y
+nnoremap <Tab>p "+p
 
 nnoremap <Tab>d :DeleteHiddenBuffers<CR>
 nnoremap <Tab>t :vsplit<bar>:terminal<CR>

@@ -48,6 +48,8 @@ require("lazy").setup({
     -- Add cscope support to newer versions of nvim.
     "dhananjaylatkar/cscope_maps.nvim",
 
+    "rstacruz/vim-closer",
+
     {
         "ellisonleao/glow.nvim",
         opts = {
@@ -160,6 +162,5 @@ require("lazy").setup({
             show_trailing_blankline_indent = false,
         },
     },
-
 })
 

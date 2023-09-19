@@ -146,4 +146,5 @@ alias zrc="nvim ${WORKSPACE}/setup/unix/zshrc"
 alias esu="nvim ${WORKSPACE}/setup"
 alias egd="nvim ${WORKSPACE}/gdev"
 alias ewk="nvim ${WORKSPACE}/wiki"
+alias 0kb="nvim ${WORKSPACE}/0kb"
 
