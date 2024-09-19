@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="mgutz"
+ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -100,12 +100,12 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-    #### PROMPT ####
-    PROMPT='%{$fg[blue]%}[%D{%L:%M} %D{%a %f/%m}] %{$fg_bold[black]%}%2~$(git_prompt_info) %{$fg_bold[magenta]%}%# %{$reset_color%}'
-    ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[yellow]%}["
-    ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-    ZSH_THEME_GIT_PROMPT_DIRTY="*]"
-    ZSH_THEME_GIT_PROMPT_CLEAN="]"
+#### PROMPT ####
+# PROMPT='%{$fg[blue]%}[%D{%L:%M} %D{%a %f/%m}] %{$fg_bold[black]%}%2~$(git_prompt_info) %{$fg_bold[magenta]%}%# %{$reset_color%}'
+# ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[yellow]%}["
+# ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+# ZSH_THEME_GIT_PROMPT_DIRTY="*]"
+# ZSH_THEME_GIT_PROMPT_CLEAN="]"
 
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
 source ~/workspace/fzf-tab/fzf-tab.plugin.zsh

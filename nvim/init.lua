@@ -52,7 +52,7 @@ wo.number = true
 -- Keep signcolumn on by default
 wo.signcolumn = "yes"
 
-cmd.colorscheme "mine"
+cmd.colorscheme "habamax"
 
 -- [[ KEYMAPS ]]
 g.mapleader = " "
